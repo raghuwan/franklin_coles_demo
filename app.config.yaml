@@ -1,0 +1,25 @@
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      franklin_coles_demo:
+        license: Apache-2.0
+        actions:
+          playlist:
+            function: actions/playlist/index.js
+            web: 'yes'
+            runtime: nodejs:16
+            inputs:
+              LOG_LEVEL: debug
+            annotations:
+              final: true
+          playlistmsg:
+            function: actions/playlistmsg/index.js
+            web: 'yes'
+            runtime: nodejs:16
+            inputs:
+              LOG_LEVEL: debug
+              apiKey: $SERVICE_API_KEY
+            annotations:
+              final: true
